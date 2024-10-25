@@ -8,9 +8,12 @@ public class OperationMathematique {
         return nombre > 0;
     }
 
-    public int factorial(int number) {
+    public int factorial(int number) throws IllegalParamISIException {
         if (number == 0) {
             return 1;
+        }
+        if (number < 0) {
+            throw new IllegalParamISIException("Factorial of negative numbers is not defined");
         }
         int result = 1;
         for (int i = 1; i <= number; i++) {
