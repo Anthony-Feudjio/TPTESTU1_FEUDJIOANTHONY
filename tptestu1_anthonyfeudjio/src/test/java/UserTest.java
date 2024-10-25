@@ -1,4 +1,7 @@
-
+import static org.junit.jupiter.api.Assertions.assertEquals;  // Import JUnit 5 assertions
+import static org.junit.jupiter.api.Assertions.assertFalse;                // Import JUnit 5 test annotation
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 public class UserTest {
 
     @Test
