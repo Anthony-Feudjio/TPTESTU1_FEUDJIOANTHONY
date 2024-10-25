@@ -51,6 +51,6 @@ public class TestOperationMathematique {
     public void testMaxNumba() {
         double[] values = {3.5, 7.2, 6.8, 1.4};
         double expected = 7.2;
-        assertEquals(expected, MathOperations.maxNumba(values), 0.001);
+        assertEquals(expected, OperationMathematique.maxNumba(values), 0.001);
     }
 }
