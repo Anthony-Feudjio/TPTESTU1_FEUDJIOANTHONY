@@ -32,4 +32,12 @@ public class TestOperationMathematique {
         // Test for factorial of 1
         assertEquals(1, op.factorial(1), "Factorial of 1 should be 1");
     }
+
+    @Test
+    public void testSort() {
+        int[] input = {4, 2, 7, 1};
+        int[] expectedOutput = {7, 4, 2, 1};
+        assertArrayEquals(expectedOutput, Sorter.sort(input));
+    }
+}
 }
