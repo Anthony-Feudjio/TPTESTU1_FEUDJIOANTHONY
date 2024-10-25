@@ -34,4 +34,13 @@ public class OperationMathematique {
         }
     }
 
+    public static double maxNumba(double[] values) {
+        double max = values[0];
+        for (double value : values) {
+            if (value > max) {
+                max = value;
+            }
+        }
+        return max;
+    }
 }
