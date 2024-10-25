@@ -1,8 +1,12 @@
 package com.test.java;
 
-import static org.junit.jupiter.api.Assertions.*;  // Import JUnit 5 assertions
+import static org.junit.jupiter.api.Assertions.assertEquals;  // Import JUnit 5 assertions
+import static org.junit.jupiter.api.Assertions.assertFalse;                // Import JUnit 5 test annotation
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
-import org.junit.jupiter.api.Test;                // Import JUnit 5 test annotation
+import com.stjean.operation.IllegalParamISIException;
+import com.stjean.operation.OperationMathematique;
 
 public class TestOperationMathematique {
 
@@ -21,7 +25,7 @@ public class TestOperationMathematique {
     }
 
     @Test
-    public void testFactorial() {
+    public void testFactorial() throws IllegalParamISIException {
         OperationMathematique op = new OperationMathematique();
 
         // Test for factorial of 5
