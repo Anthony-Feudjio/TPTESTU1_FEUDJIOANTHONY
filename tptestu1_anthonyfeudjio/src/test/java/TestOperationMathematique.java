@@ -1,6 +1,7 @@
-package com.stjean.operation;
+package com.test.java;
 
 import static org.junit.jupiter.api.Assertions.*;  // Import JUnit 5 assertions
+
 import org.junit.jupiter.api.Test;                // Import JUnit 5 test annotation
 
 public class TestOperationMathematique {
