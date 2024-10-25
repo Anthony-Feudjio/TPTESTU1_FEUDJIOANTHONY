@@ -1,12 +1,15 @@
 package com.test.java;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;  // Import JUnit 5 assertions
 import static org.junit.jupiter.api.Assertions.assertFalse;                // Import JUnit 5 test annotation
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.stjean.operation.IllegalParamISIException;
 import com.stjean.operation.OperationMathematique;
+import com.stjean.operation.OperationMathematique.Sorter;
 
 public class TestOperationMathematique {
 
@@ -36,5 +39,25 @@ public class TestOperationMathematique {
 
         // Test for factorial of 1
         assertEquals(1, op.factorial(1), "Factorial of 1 should be 1");
+    }
+     @Test
+    public void testSort() {
+        int[] input = {4, 2, 7, 1};
+        int[] expectedOutput = {7, 4, 2, 1};
+        assertArrayEquals(expectedOutput, Sorter.sort(input));
+    }
+
+    @Test
+    public void testFactorialWithNegativeInput() {
+        assertThrows(IllegalParamISIException.class, () -> {
+            MathOperations.factorial(-5);
+        });
+    }
+
+    @Test
+    public void testMaxNumba() {
+        double[] values = {3.5, 7.2, 6.8, 1.4};
+        double expected = 7.2;
+        assertEquals(expected, OperationMathematique.maxNumba(values), 0.001);
     }
 }
