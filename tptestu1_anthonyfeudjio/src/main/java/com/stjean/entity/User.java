@@ -1,5 +1,7 @@
 package com.stjean.entity;
 
+import java.util.ArrayList;
+
 public class User {
 
     private int id;
@@ -9,6 +11,7 @@ public class User {
     private String phone;
     private String city;
     private double balancePersonnel;
+    private static ArrayList<User> users = new ArrayList<>();
 
     // Constructor
     public User(int id, String name, int age, String email, String phone, String city, double balancePersonnel) {
@@ -77,4 +80,62 @@ public class User {
     public void setBalancePersonnel(double balancePersonnel) {
         this.balancePersonnel = balancePersonnel;
     }
+
+    public static void addUser(User user) throws EmailInvalidException {
+        if (!validateEmail(user.getEmail())) {
+            throw new EmailInvalidException("Invalid email format.");
+        }
+        users.add(user);
+    }
+
+    // Method to delete user by ID
+    public static void deleteUser(int id) throws DeletionInvalidException {
+        User user = findUserById(id);
+        if (user == null) {
+            throw new DeletionInvalidException("User with ID " + id + " not found.");
+        }
+        users.remove(user);
+    }
+
+    // Method to list all users
+    public static void listUsers() {
+        for (User user : users) {
+            System.out.println(user);
+        }
+    }
+
+    // Method to display a user by ID
+    public static void displayUser(int id) {
+        User user = findUserById(id);
+        if (user != null) {
+            System.out.println(user);
+        } else {
+            System.out.println("User not found.");
+        }
+    }
+
+    // Helper method to find a user by ID
+    private static User findUserById(int id) {
+        for (User user : users) {
+            if (user.getId() == id) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    // Email validation method
+    public static boolean validateEmail(String email) {
+        return email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
+    }
+public class EmailInvalidException extends Exception {
+    public EmailInvalidException(String message) {
+        super(message);
+    }
 }
+
+public class DeletionInvalidException extends Exception {
+    public DeletionInvalidException(String message) {
+        super(message);
+    }
+}}
