@@ -46,4 +46,11 @@ public class TestOperationMathematique {
             MathOperations.factorial(-5);
         });
     }
+
+    @Test
+    public void testMaxNumba() {
+        double[] values = {3.5, 7.2, 6.8, 1.4};
+        double expected = 7.2;
+        assertEquals(expected, MathOperations.maxNumba(values), 0.001);
+    }
 }
