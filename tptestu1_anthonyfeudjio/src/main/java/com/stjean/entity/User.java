@@ -1,7 +1,6 @@
 package com.stjean.entity;
 
 import java.util.ArrayList;
-import com.stjean.entity.*;
 
 public class User {
 
@@ -128,5 +127,27 @@ public class User {
     // Email validation method
     public static boolean validateEmail(String email) {
         return email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
+    }
+
+    public static double analyseSoldeGeneral() throws NegativeGeneralBalanceException {
+        double totalBalance = 0;
+        for (User user : users) {
+            totalBalance += user.getBalancePersonnel();
+        }
+        if (totalBalance < 0) {
+            throw new NegativeGeneralBalanceException("The general balance is negative.");
+        }
+        return totalBalance;
+    }
+
+    // Method to return the richest user
+    public static User getRichestUser() {
+        User richestUser = users.get(0);
+        for (User user : users) {
+            if (user.getBalancePersonnel() > richestUser.getBalancePersonnel()) {
+                richestUser = user;
+            }
+        }
+        return richestUser;
     }
 }
