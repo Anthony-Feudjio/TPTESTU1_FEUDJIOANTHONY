@@ -21,4 +21,23 @@ public class UserTest {
     public void testDisplayUser() {
         UserManager.displayUser(1);
     }
+    @Test
+    public void testAnalyseSoldeGeneralWithNegativeBalance() {
+        assertThrows(NegativeGeneralBalanceException.class, () -> {
+            User user1 = new User(1, "John", 25, "john@example.com", "123", "City", -500.0);
+            User user2 = new User(2, "Jane", 30, "jane@example.com", "456", "City", -200.0);
+            UserManager.addUser(user1);
+            UserManager.addUser(user2);
+            UserManager.analyseSoldeGeneral();
+        });
+    }
+
+    @Test
+    public void testGetRichestUser() {
+        User user1 = new User(1, "John", 25, "john@example.com", "123", "City", 500.0);
+        User user2 = new User(2, "Jane", 30, "jane@example.com", "456", "City", 200.0);
+        UserManager.addUser(user1);
+        UserManager.addUser(user2);
+        assertEquals(user1, UserManager.getRichestUser());
+    }
 }
