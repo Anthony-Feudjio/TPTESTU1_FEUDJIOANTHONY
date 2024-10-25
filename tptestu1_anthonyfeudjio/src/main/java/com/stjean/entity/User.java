@@ -1,6 +1,7 @@
 package com.stjean.entity;
 
 import java.util.ArrayList;
+import com.stjean.entity.*;
 
 public class User {
 
@@ -128,14 +129,4 @@ public class User {
     public static boolean validateEmail(String email) {
         return email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
     }
-public class EmailInvalidException extends Exception {
-    public EmailInvalidException(String message) {
-        super(message);
-    }
 }
-
-public class DeletionInvalidException extends Exception {
-    public DeletionInvalidException(String message) {
-        super(message);
-    }
-}}
