@@ -1,7 +1,13 @@
 package com.stjean.operation;
 
-import static org.junit.jupiter.api.Assertions.*;  // Import JUnit 5 assertions
-import org.junit.jupiter.api.Test;                // Import JUnit 5 test annotation
+import static org.junit.jupiter.api.Assertions.assertEquals;  // Import JUnit 5 assertions
+import static org.junit.jupiter.api.Assertions.assertFalse;                // Import JUnit 5 test annotation
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
+
+import com.stjean.operation.IllegalParamISIException;
+import com.stjean.operation.OperationMathematique;
+               // Import JUnit 5 test annotation
 
 public class TestOperationMathematique {
 
