@@ -39,5 +39,11 @@ public class TestOperationMathematique {
         int[] expectedOutput = {7, 4, 2, 1};
         assertArrayEquals(expectedOutput, Sorter.sort(input));
     }
-}
+
+    @Test
+    public void testFactorialWithNegativeInput() {
+        assertThrows(IllegalParamISIException.class, () -> {
+            MathOperations.factorial(-5);
+        });
+    }
 }
